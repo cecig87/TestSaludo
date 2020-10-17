@@ -17,6 +17,8 @@ public class AppTest {
      */
 
     static Printeador printead;
+    String nombre;
+    String respuesta;
 
     @Test
     public void shouldAnswerWithTrue() {
@@ -30,8 +32,16 @@ public class AppTest {
 
     @Test
     public void testSaludar() {
-        String nombre = printead.saludar("Mario");
-        String respuesta = "Hola Mario!";
+
+        nombre = printead.saludar("Mario");
+        respuesta = "Hola Mario!";
+        assertEquals(respuesta, nombre);
+    }
+
+    @Test
+    public void verificarAnonimo() {
+        nombre = printead.saludar("");
+        respuesta = "Hola anónimo!";
         assertEquals(respuesta, nombre);
     }
 
