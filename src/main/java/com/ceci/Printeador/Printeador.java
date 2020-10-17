@@ -5,9 +5,15 @@ import java.util.Scanner;
 public class Printeador {
 
     public String saludar(String name) {
-        name = saludarAnonimo(name);
+        // name = saludarAnonimo(name);
         return "Hola " + name + "!";
 
+    }
+
+    public String saludar() {
+        String msg;
+        msg = " anónimo";
+        return "Hola" + msg + "!";
     }
 
     public void obtenerNombre() {
@@ -17,25 +23,26 @@ public class Printeador {
         String name;
         name = obtainName.nextLine();
 
-        // if (name.isEmpty()) {
-        // Scanner obtainAgain = new Scanner(System.in);
-        // System.out.print("Por favor introduzca su nombre:");
-        // name = obtainAgain.nextLine();
-        // name = "anónimo";
-        // System.out.println(saludar(name));
-        // obtainAgain.close();
-        // } else {
-        System.out.println(saludar(name));
-        obtainName.close();
-        // }
-
-    }
-
-    public String saludarAnonimo(String nombre) {
-        if (nombre.isEmpty()) {
-            nombre = "anónimo";
+        if (name.isEmpty()) {
+            System.out.println(saludar());
+            // Scanner obtainAgain = new Scanner(System.in);
+            // System.out.print("Por favor introduzca su nombre:");
+            // name = obtainAgain.nextLine();
+            // name = "anónimo";
+            // System.out.println(saludar(name));
+            // obtainAgain.close();
+        } else {
+            System.out.println(saludar(name));
+            obtainName.close();
         }
-        return nombre;
+
     }
+
+    // public String saludarAnonimo(String nombre) {
+    // if (nombre.isEmpty()) {
+    // nombre = "anónimo";
+    // }
+    // return nombre;
+    // }
 
 }

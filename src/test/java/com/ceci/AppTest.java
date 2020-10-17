@@ -40,9 +40,10 @@ public class AppTest {
 
     @Test
     public void verificarAnonimo() {
-        nombre = printead.saludar("");
+
         respuesta = "Hola anónimo!";
-        assertEquals(respuesta, nombre);
+        assertEquals(respuesta, printead.saludar());
+
     }
 
 }
