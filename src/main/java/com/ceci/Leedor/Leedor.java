@@ -5,21 +5,34 @@ import java.util.Scanner;
 import com.ceci.Printeador.Printeador;
 
 public class Leedor {
+
+    private String name;
+
     Printeador pr = new Printeador();
 
-    public void obtenerNombre() {
+    public String obtenerNombre() {
         Scanner obtainName = new Scanner(System.in);
 
         System.out.print("Introduzca su nombre: ");
-        String name;
-        name = obtainName.nextLine();
 
+        name = obtainName.nextLine();
+        obtainName.close();
+        return seleccionarSaludo();
+
+    }
+
+    public String name(String nombre) {
+        name = nombre;
+        return name;
+    }
+
+    public String seleccionarSaludo() {
         if (name.isEmpty()) {
-            System.out.println(pr.saludar());
+            return pr.saludar();
 
         } else {
-            System.out.println(pr.saludar(name));
-            obtainName.close();
+            return pr.saludar(name);
+
         }
 
     }

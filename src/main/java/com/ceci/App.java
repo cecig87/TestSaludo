@@ -12,7 +12,7 @@ public class App {
         System.out.println("Hello World!");
 
         Leedor p = new Leedor();
-        p.obtenerNombre();
+        System.out.println(p.obtenerNombre());
     }
 
 }
