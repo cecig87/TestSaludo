@@ -2,13 +2,13 @@ package com.ceci.Leedor;
 
 import java.util.Scanner;
 
-import com.ceci.Printeador.Printeador;
+//import com.ceci.Printeador.Printeador;
 
 public class Leedor {
 
     private String name;
 
-    Printeador pr = new Printeador();
+    // Printeador pr = new Printeador();
 
     public String obtenerNombre() {
         Scanner obtainName = new Scanner(System.in);
@@ -16,9 +16,10 @@ public class Leedor {
         System.out.print("Introduzca su nombre: ");
 
         name = obtainName.nextLine();
-        obtainName.close();
-        return seleccionarSaludo();
 
+        obtainName.close();
+        // return seleccionarSaludo();
+        return name(name);
     }
 
     public String name(String nombre) {
@@ -26,15 +27,15 @@ public class Leedor {
         return name;
     }
 
-    public String seleccionarSaludo() {
-        if (name.isEmpty()) {
-            return pr.saludar();
+    // public String seleccionarSaludo() {
+    // if (name.isEmpty()) {
+    // return pr.saludar();
 
-        } else {
-            return pr.saludar(name);
+    // } else {
+    // return pr.saludar(name);
 
-        }
+    // }
 
-    }
+    // }
 
 }
