@@ -5,43 +5,64 @@ import static org.junit.Assert.assertEquals;
 
 import com.ceci.Leedor.Leedor;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+//import org.junit.runner.RunWith;
+//import org.junit.runners.Parameterized;
+//import org.junit.runners.Parameterized.Parameters;
 
-import java.util.Arrays;
+import java.io.InputStream;
+//import java.io.PrintStream;
+import java.io.ByteArrayInputStream;
+//import java.io.ByteArrayOutputStream;
+//import java.util.Arrays;
 
-@RunWith(Parameterized.class)
+//@RunWith(Parameterized.class)
 public class LeedorTest {
     static Leedor lee;
+    // String nombre, esp;
+
+    private final InputStream systemIn = System.in;
+    // private final PrintStream systemOut = System.out;
+
+    private ByteArrayInputStream testIn;
+    // private ByteArrayOutputStream testOut;
 
     @Before
-    public void Before() {
+    public void BeforeSetUpOutput() {
         lee = new Leedor();
-
+        // testOut = new ByteArrayOutputStream();
+        // System.setOut(new PrintStream(testOut));
     }
 
-    String nombre, esp;
-
-    @Parameters
-    public static Iterable<Object[]> verNombre() {
-        return Arrays.asList(new Object[][] { { "Sara", "Sara" }, { "", "" } });
+    public void provideInput(String data) {
+        testIn = new ByteArrayInputStream(data.getBytes());
+        System.setIn(testIn);
     }
 
-    public LeedorTest(String nombre, String esp) {
-        this.nombre = nombre;
-        this.esp = esp;
+    @After
+    public void restoreSystemInputOutput() {
+        System.setIn(systemIn);
+        // System.setOut(systemOut);
+
     }
 
     @Test
     public void TestObtenerName() {
+        final String testString = "Sara";
+        provideInput(testString);
 
-        String nombres = lee.name(nombre);
-        assertEquals(esp, nombres);
-
+        assertEquals(testString, lee.obtenerNombre());
     }
+
+    // @Test
+    // public void TestObtenerName() {
+
+    // String nombres = lee.name(nombre);
+    // assertEquals(esp, nombres);
+
+    // }
 
     // @Test
     // public void TestObtenerName() {

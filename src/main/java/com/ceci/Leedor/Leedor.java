@@ -19,7 +19,7 @@ public class Leedor {
 
         obtainName.close();
         // return seleccionarSaludo();
-        return name(name);
+        return name;
     }
 
     public String name(String nombre) {
